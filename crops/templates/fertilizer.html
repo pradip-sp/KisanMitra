@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+fertilizer
+{% endblock title %}
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'css/crop.css' %}?v=8">
+
+<form action="" method="get" class="myForm">
+    <input type="text" autocomplete="off" name="search" class="input" placeholder="Search">
+    <input type="submit" value="Search" />
+</form>
+
+<section class="Our-Services" id="Our-Services">
+
+    <div class="section-title">
+        <h2>fertilizer</h2>
+        <p>अपनी फसल और मिट्टी की जरूरत के हिसाब से सही खाद और उर्वरक का चुनाव करें। यहाँ जानें कि किस फसल में, कितनी मात्रा में और किस समय खाद डालनी चाहिए ताकि आपकी लागत कम हो और पैदावार बढ़ सके।  मिट्टी की उपजाऊ क्षमता और बेहतर पैदावार के लिए सही उर्वरक का उपयोग बेहद जरूरी है। अपनी फसल के लिए उपयुक्त खाद (जैविक और रासायनिक), उसकी सही मात्रा और उपयोग करने का वैज्ञानिक तरीका यहाँ जानें।</p>
+    </div>
+
+    <div class="cards">
+        {% for fertilizer in fertilizers %}
+        <div class="card">
+            <img src="{{ fertilizer.image.url }}">
+            <div class="card-content">
+                <h3>{{ fertilizer.name }}</h3>
+                <p>{{ fertilizer.card_desc|truncatewords:40 }}</p>
+                <a href="{% url 'fertilizer_detail' fertilizer.id %}" class="learnmore">learn more </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+</section>
+
+{% endblock body %}

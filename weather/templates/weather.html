@@ -1,0 +1,135 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Weather{% if location %} — {{ location.name }}{% endif %}
+{% endblock title %}
+
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'css/weather.css'%}">
+<div class="wrap">
+
+    <form class="search-row" method="get" action="{% url 'weather_page' %}" id="search-form">
+        <input type="text" name="city" placeholder="Shehar ka naam likhein (e.g. Varanasi)" value="{{ city_query }}">
+        <button type="submit" class="btn-search">Search</button>
+        <button type="button" class="btn-locate" id="locate-btn" onclick="useMyLocation()">📍 Use my location</button>
+    </form>
+    <div class="locate-status" id="locate-status"></div>
+
+    {% if error %}
+        <div class="error-box">{{ error }}</div>
+    {% endif %}
+
+    {% if options %}
+        <div class="options-box">
+            <p class="options-title">"{{ city_query }}" ke liye {{ options|length }} matches mile — sahi wala chunein:</p>
+            {% for opt in options %}
+                <a class="option-item" href="{% url 'weather_page' %}?lat={{ opt.latitude }}&lon={{ opt.longitude }}&city={{ opt.name }}">
+                    <div class="opt-name">{{ opt.name }}</div>
+                    <div class="opt-sub">
+                        {% if opt.region %}{{ opt.region }}, {% endif %}{{ opt.country }}
+                        &nbsp;·&nbsp; {{ opt.latitude|floatformat:2 }}, {{ opt.longitude|floatformat:2 }}
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if current and location %}
+        <div class="current-card">
+            <div class="current-left">
+                <h1>{{ location.name }}{% if location.region %}, {{ location.region }}{% endif %}</h1>
+                <div class="sub">{{ location.country }}</div>
+                <div class="temp-row">
+                    <img class="icon" src="https:{{ current.icon }}" alt="{{ current.description }}">
+                    <div class="temp">{{ current.temperature|floatformat:0 }}°C</div>
+                    <div class="desc-col">
+                        <div class="desc">{{ current.description }}</div>
+                        <div class="feels">Feels like {{ current.feels_like|floatformat:0 }}°C</div>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="label">Humidity</div>
+                    <div class="value">{{ current.humidity }}%</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Wind</div>
+                    <div class="value">{{ current.wind_speed|floatformat:0 }} km/h</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Pressure</div>
+                    <div class="value">{{ current.pressure|floatformat:0 }} hPa</div>
+                </div>
+            </div>
+        </div>
+
+        {% if hourly_forecast %}
+            <div class="section-title">Next 24 Hours</div>
+            <div class="hourly-scroll">
+                {% for h in hourly_forecast %}
+                    <div class="hour-card">
+                        <div class="time">{{ h.time }}</div>
+                        <img class="icon" src="https:{{ h.icon }}" alt="{{ h.description }}">
+                        <div class="temp">{{ h.temp|floatformat:0 }}°</div>
+                        <div class="rain">💧 {{ h.rain_chance }}%</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if daily_forecast %}
+            <div class="section-title">6-Day Forecast</div>
+            <div class="daily-list">
+                {% for d in daily_forecast %}
+                    <div class="day-row">
+                        <div class="day-name">{{ d.date }}</div>
+                        <div class="icon-desc">
+                            <img class="icon" src="https:{{ d.icon }}" alt="{{ d.description }}">
+                            <span>{{ d.description }}</span>
+                        </div>
+                        <div class="rain">💧 {{ d.rain_chance }}%</div>
+                        <div class="range">
+                            <span class="max">{{ d.max_temp|floatformat:0 }}°</span>
+                            <span class="min">{{ d.min_temp|floatformat:0 }}°</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <footer>
+        Powered by <a href="https://www.weatherapi.com/" target="_blank" rel="noopener">WeatherAPI.com</a>
+    </footer>
+</div>
+
+<script>
+function useMyLocation() {
+    const statusEl = document.getElementById('locate-status');
+    if (!navigator.geolocation) {
+        statusEl.textContent = 'Aapka browser location share nahi kar sakta.';
+        return;
+    }
+    statusEl.textContent = 'Location permission maang rahe hain...';
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            statusEl.textContent = 'Location mil gayi, weather load ho raha hai...';
+            window.location.href = "{% url 'weather_page' %}?lat=" + lat + "&lon=" + lon;
+        },
+        function (err) {
+            if (err.code === err.PERMISSION_DENIED) {
+                statusEl.textContent = 'Permission deny ki gayi. Neeche search box se shehar ka naam likhein.';
+            } else {
+                statusEl.textContent = 'Location nahi mil paayi. Search box use karein.';
+            }
+        }
+    );
+}
+</script>
+
+
+{% endblock body %}

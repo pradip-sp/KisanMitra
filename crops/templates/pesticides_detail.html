@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block title %}
+{{ pesticides.name }}
+{% endblock title %}
+
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cards.css' %}?v=6">
+
+<div class="details">
+<p>{{ pesticides.description| safe }}</p>
+</div>
+<div class="button">
+    <a href="{% url 'pesticides' %} ">Back</a>
+
+</div>
+{% endblock body %}

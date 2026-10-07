@@ -1,0 +1,62 @@
+.about {
+    padding: 90px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    background: #fafafa;
+}
+
+.about-left,
+.about-right {
+    width: 50%;
+}
+
+.about-left img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.about-right h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.about-right p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.about-right button {
+    background: #5c67f2;
+    border: none;
+    color: white;
+    padding: 16px 30px;
+    border-radius: 10px;
+}
+
+.learnmore {
+    text-decoration: none;
+    color: #fafafa;
+    font-size: 15px;
+}
+
+@media(max-width:750px) {
+    .about {
+        display: flex;
+        flex-direction: column;
+        /* Isse elements vertical line mein aayenge */
+        gap: 5px;
+        padding: 0px;
+        /* Dono div ke beech ka space */
+    }
+
+    .about-left,
+    .about-right {
+        width: 90%;
+        padding: 5px;
+        /* background-color: #f0f0f0; */
+        /* border: 1px solid #ccc; */
+    }
+}

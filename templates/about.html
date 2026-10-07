@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block title %}
+about
+{% endblock title %}
+
+
+{% block body %}
+<link rel="stylesheet" href="{%static 'css/about.css'%}?v=2">
+
+<section class="about" id="about">
+
+        <div class="about-left">
+            <img src="../static/images/crops/modern-indian-farmer-using-mobile.jpg">
+        </div>
+
+        <div class="about-right">
+            <h2>About Kisanमित्र</h2>
+
+            <p>
+                "स्मार्ट फार्मर इन्फॉर्मेशन एंड एडवाइजरी सिस्टम (Smart Farmer Information & Advisory System) एक उपयोग
+                में आसान (यूज़र-फ्रेंडली) प्लेटफॉर्म है, जिसे किसानों को एक ही जगह पर सभी जरूरी कृषि जानकारी देकर उनकी
+                मदद करने के लिए बनाया गया है।
+                <br>
+                हमारा लक्ष्य फसल की जानकारी, उर्वरक (खाद) के सुझावों, मौसम के अपडेट और AI-आधारित वॉइस असिस्टेंट के
+                माध्यम से किसानों को सही और सटीक निर्णय लेने में मदद करना है।
+                <br>
+                इस प्लेटफॉर्म को इस तरह से डिज़ाइन किया गया है कि यह हर एक किसान के लिए एकदम सरल, सुलभ और इस्तेमाल करने
+                में बहुत ही आसान हो।"
+            </p>
+
+            <button><a href="#" class="learnmore">Learn More</a></button>
+        </div>
+
+    </section>
+
+
+{% endblock body %}

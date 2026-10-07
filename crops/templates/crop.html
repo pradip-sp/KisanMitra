@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+crop
+{% endblock title %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'css/crop.css' %}?v=8">
+
+<form action="" method="get" class="myForm">
+    <input type="text" autocomplete="off" name="search" class="input" placeholder="Search">
+    <input type="submit" value="Search" />
+</form>
+
+<section class="Our-Services" id="Our-Services">
+
+    <div class="section-title">
+        <h2>🌾 cards</h2>
+        <p>यहाँ विभिन्न प्रकार की फसलों (रबी, खरीफ और जायद) के बारे में विस्तृत जानकारी प्राप्त करें। अपनी मिट्टी और मौसम के अनुसार सही फसल का चुनाव करें और बुवाई से लेकर कटाई तक का सही मार्गदर्शन पाएं। जानें कि आपके खेत और मौसम के लिए कौन सी फसल सबसे उपयुक्त है। उन्नत किस्मों, बुवाई के सही समय और फसल देखभाल की सटीक जानकारी के साथ अपनी खेती को सफल बनाएं और पैदावार बढ़ाएं।"</p>
+    </div>
+    
+    <div class="cards">
+        {% for crop in crops %}
+        <div class="card">
+            <img src="{{ crop.image.url }}">
+            <div class="card-content">
+                <h3>{{ crop.name }}</h3>
+                <p>{{ crop.card_desc|truncatewords:40 }}</p>
+                <a href="{% url 'crop_detail' crop.id %}" class="learnmore">learn more </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    
+</section>
+
+{% endblock body %}

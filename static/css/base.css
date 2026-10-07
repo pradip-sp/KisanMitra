@@ -1,0 +1,414 @@
+CSS * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* :root {
+    --bg-top: #2c5364;
+    --bg-mid: #203a43;
+    --bg-bottom: #0f2027;
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.15);
+    --text-main: #011620;
+    --text-muted: #e6e6e6;
+    --accent: #acf0ff;
+} */
+
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(160deg, var(--bg-top), var(--bg-mid) 55%, var(--bg-bottom));
+    color: var(--text-main);
+}
+
+/* body {
+    background: #ffffff;
+    color: #111827;
+    margin: 0;
+} */
+
+/* Navbar */
+
+header {
+    padding: 5px 90px;
+    background: #00360e;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 38px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 10px 15px;
+}
+
+.nav-links a.active {
+    color: #e2b51f;
+    border-bottom: 2px solid #D4AF37;
+}
+
+
+/* footer section  */
+.footers {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.footheading {
+    text-align: left;
+    padding-left: 100px;
+}
+
+footer h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+/* footer p {
+
+    margin-bottom: 20px;
+} */
+
+/* From Uiverse.io by ubaidi10 */
+.Card {
+    width: fit-content;
+    height: fit-content;
+    background-color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+/* for all social containers*/
+.socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 0.3s;
+}
+
+/* instagram*/
+.containerOne:hover {
+    background-color: #d62976;
+    transition-duration: 0.3s;
+    transform: scale(1.5);
+    border-radius: 15px;
+}
+
+/* twitter*/
+/* .containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: 0.3s;
+    transform: scale(1.5);
+    border-radius: 15px;
+} */
+
+/* linkdin*/
+.containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: 0.3s;
+    transform: scale(1.5);
+    border-radius: 15px;
+}
+
+/* Whatsapp*/
+.containerFour:hover {
+    background-color: #25d366;
+    transition-duration: 0.3s;
+    transform: scale(1.5);
+    border-radius: 15px;
+}
+
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+}
+
+.socialSvg {
+    width: 17px;
+}
+
+.socialSvg path {
+    fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Mobile Menu */
+
+.menu-btn {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Smooth animation */
+
+.card,
+.blog-post,
+.category {
+    transition: all .4s ease;
+}
+
+/* Responsive */
+
+@media(max-width:900px) {
+
+    header {
+        padding: 20px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: white;
+        flex-direction: column;
+        width: 220px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+        z-index: 99999;
+    }
+
+    .nav-links a {
+        color: black;
+    }
+
+    .menu-btn {
+        display: block;
+        z-index: 99999;
+    }
+
+    .footers {
+        background: #111827;
+        color: white;
+        /* text-align: center; */
+        display: flex;
+        flex-wrap: wrap;
+        /* padding: 50px; */
+
+    }
+
+    .footheading {
+        text-align: left;
+        padding-left: 0;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Progress Bar */
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: #5c67f2;
+    z-index: 99999;
+}
+
+
+/* Theme Toggle */
+
+.theme-toggle {
+    position: fixed;
+    right: 10px;
+    bottom: 100px;
+    background: #5c67f2;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 99999;
+}
+
+
+/* Top Button */
+
+#topBtn {
+    position: fixed;
+    right: 10px;
+    bottom: 30px;
+    background: #111827;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 99999;
+}
+
+
+/* Glass Effect */
+
+.card,
+.blog-post {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, .9);
+}
+
+
+/* Hover Effects */
+
+button {
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+}
+
+
+/* Dark Theme */
+
+.dark {
+    /* background: #111827; */
+    background: #212121;
+    color: white;
+}
+
+html.dark,
+body.dark {
+    background: #111827;
+    color: white;
+}
+
+.dark header {
+    background: #111827;
+    border: none;
+}
+
+.dark .nav-links {
+    background: #1118279a;
+}
+
+.dark .nav-links a {
+    color: rgb(255, 255, 255);
+}
+
+.dark .hero {
+    background: #1f2937;
+}
+
+.dark .about,
+.dark .contact {
+    background: #111827;
+}
+
+.dark .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)),
+        url("../images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dark .section-title p,
+.dark .hero-left p,
+.dark .card-content p,
+.dark .blog-post p,
+.dark .about-right p,
+.dark footer p {
+    color: #cbd5e1;
+}
+
+.dark .popular-crops {
+    color: #000000e3;
+}
+
+.dark .Our-Services,
+.dark .categories,
+.dark .newsletter {
+    background: #111827;
+    /* color: #000000e3; */
+}
+
+.dark .category {
+    color: #000000e3;
+}
+
+.dark .card,
+.dark .blog-post {
+    background: #1f2937;
+    color: white;
+}
+
+.dark footer {
+    background: black;
+}

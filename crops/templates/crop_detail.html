@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+{{ crop.name }}
+{% endblock title %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/cards.css' %}?v=5">
+<div class="details">
+    {% comment %} <h1>{{ crop.name }}</h1> {% endcomment %}
+
+    {% comment %} <img class="mainImg" src="{{ crop.image.url }}"> {% endcomment %}
+
+    <p>{{ crop.description | safe }}</p>
+
+</div>
+<div class="button">
+    <a href="{% url 'crop' %} ">Back</a>
+
+</div>
+
+
+
+
+{% endblock body %}

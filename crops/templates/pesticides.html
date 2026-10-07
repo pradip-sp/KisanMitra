@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+pesticides
+{% endblock title %}
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'css/crop.css' %}?v=8">
+
+<form action="" method="get" class="myForm">
+    <input type="text" autocomplete="off" name="search" class="input" placeholder="Search">
+    <input type="submit" value="Search" />
+</form>
+
+<section class="Our-Services" id="Our-Services">
+
+    <div class="section-title">
+        <h2>pesticides</h2>
+        <p>अपनी फसल को कीटों, फफूंद और विभिन्न रोगों से बचाने के लिए सही कीटनाशकों की जानकारी प्राप्त करें। यहाँ जानें कि किस बीमारी में कौन सी दवा, किस मात्रा में और कब छिड़कनी है ताकि आपकी फसल पूरी तरह सुरक्षित रहे। फसल सुरक्षा ही अच्छी पैदावार की असली कुंजी है। अपने खेत में लगने वाले कीटों और बीमारियों की समय पर पहचान करें और उनके वैज्ञानिक व सुरक्षित निवारण के लिए सही कीटनाशक के सुझाव पाएं। रोग-मुक्त फसल, सुरक्षित मुनाफा! कीटों और बीमारियों से अपनी फसल का बचाव करें। कीटनाशकों के सही चयन, उचित मात्रा और सुरक्षित छिड़काव के सभी तरीके यहाँ जानें।</p>
+    </div>
+
+    <div class="cards">
+        {% for pesticides in pesticides %}
+        <div class="card">
+            <img src="{{ pesticides.image.url }}">
+            <div class="card-content">
+                <h3>{{ pesticides.name }}</h3>
+                <p>{{ pesticides.card_desc|truncatewords:40 }}</p>
+                <a href="{% url 'pesticides_detail' pesticides.id %}" class="learnmore">learn more </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+</section>
+
+{% endblock body %}
