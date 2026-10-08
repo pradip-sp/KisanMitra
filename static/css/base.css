@@ -5,9 +5,6 @@ CSS * {
     font-family: Arial, sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
 /* :root {
     --bg-top: #2c5364;
