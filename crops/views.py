@@ -13,9 +13,9 @@ from django.shortcuts import render
 
 
 def index(request):
-    crops = Crop.objects.all()[:3]
-    fertilizers = Fertilizer.objects.all()[:3]
-    pesticides = Pesticides.objects.all()[:3]
+    crops = Crop.objects.all()[:6]
+    fertilizers = Fertilizer.objects.all()[:6]
+    pesticides = Pesticides.objects.all()[:6]
     return render(request, "index.html", {
         "crops": crops,
         "fertilizers":fertilizers,
