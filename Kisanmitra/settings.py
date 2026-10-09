@@ -114,6 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
+
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
@@ -135,7 +136,14 @@ AI_MODEL = os.environ.get("AI_MODEL", "gemini/gemini-3.6-flash")
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / 'static']   
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Security Setting 
 
