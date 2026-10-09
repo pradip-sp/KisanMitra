@@ -32,9 +32,10 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '*'
 ]
-# CSRF_TRUSTED_ORIGINS = [
-#     "",
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://kisanmitra-hxph.onrender.com",
+    "www.https://kisanmitra-hxph.onrender.com"
+]
 
 
 # Application definition
