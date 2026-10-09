@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crops",
-    "ai",
+    # "ai",
     "weather",
     "tinymce",
     "cloudinary_storage",

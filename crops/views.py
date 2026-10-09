@@ -103,3 +103,7 @@ def subscribe(request):
             messages.success(request, "You have subscribed successfully!")
 
         return redirect("index")
+
+
+def ai(request):
+    return render(request, 'coming_soon.html')
