@@ -17,7 +17,6 @@ urlpatterns = [
     path("about",views.about,name="about"),
     path("contact/",views.contact,name="contact"),
     path("subscribe/", views.subscribe, name="subscribe"),
-    path('ai/', views.ai, name='ai-coming-soon'),
 
 ]
 if settings.DEBUG:

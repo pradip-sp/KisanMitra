@@ -28,7 +28,7 @@ admin.site.index_title = "Welcome to Kisan Mitra"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",include("crops.urls")),
-    # path("ai",include("ai.urls")),
+    path("ai",include("ai.urls")),
     path("weather",include("weather.urls")),
 ]
 if settings.DEBUG:

@@ -105,5 +105,3 @@ def subscribe(request):
         return redirect("index")
 
 
-def ai(request):
-    return render(request, 'coming_soon.html')

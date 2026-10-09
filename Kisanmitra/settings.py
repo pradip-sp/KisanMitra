@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crops",
-    # "ai",
+    "ai",
     "weather",
     "tinymce",
     "cloudinary_storage",
@@ -146,6 +146,7 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+
 
 # ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 ANTHROPIC_API_KEY = os.environ.get("GEMINI_API_KEY", "")
