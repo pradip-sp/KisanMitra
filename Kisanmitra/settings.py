@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
+import dj_database_url
 import cloudinary
 import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
