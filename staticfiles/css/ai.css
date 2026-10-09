@@ -1,0 +1,29 @@
+body {
+    background-image: url(../images/AI3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: antiquewhite;
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.result-dev {
+    color: black;
+}
+
+@media(max-width:750px) {
+    body {
+        color: rgba(228, 22, 83, 0.897);
+        /* margin: 30px; */
+    }
+
+    .container {
+        margin: 30px;
+        /* max-width: 600px; */
+        /* margin: 30px auto; */
+    }
+
+}
