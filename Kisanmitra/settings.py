@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
-from dotenv import load_dotenvimport 
+from dotenv import load_dotenv
 import cloudinary
 import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
