@@ -23,6 +23,7 @@ import logging
 from django.conf import settings
 from PIL import Image
 from litellm import completion
+litellm.verbose = False
 
 try:
     import pillow_heif
