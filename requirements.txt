@@ -13,4 +13,4 @@ pip==26.2.1
 dj-database-url==3.1.2
 psycopg2-binary==2.9.13
 cloudinary==1.46.3
-django_cloudinary_storage==0.3.0
+django_cloudinary_storage== 0.3.0
