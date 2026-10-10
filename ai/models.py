@@ -1,11 +1,15 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class CropQuery(models.Model):
     """
     Ek entry = kisan ne ek photo + sawaal bheja, aur AI ne jawaab diya.
     """
-    photo = models.ImageField(upload_to="crop_photos/%Y/%m/%d/")
+
+    # photo = models.ImageField(upload_to="crop_photos/%Y/%m/%d/")
+    photo = CloudinaryField('crop_photos/%Y/%m/%d/')
+
     question_text = models.TextField(
         blank=True,
         help_text="Kisan ka sawaal, jaise 'iski patti pili kyun ho rahi hai'",

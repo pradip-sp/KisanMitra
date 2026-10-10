@@ -1,1 +1,4 @@
 .env
+settings.py.old
+db.sqlite3
+media  

@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 import dj_database_url
 import cloudinary
 import cloudinary.uploader
+import cloudinary.api
 from cloudinary.utils import cloudinary_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -102,20 +103,13 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / 'static']   
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
-}
-STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
+cloudinary.config(
+    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),   # lowercase
+    api_key=os.getenv('CLOUDINARY_API_KEY'),         # lowercase
+    api_secret=os.getenv('CLOUDINARY_API_SECRET'),   # lowercase
+)
 
-}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators

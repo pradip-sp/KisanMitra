@@ -10,5 +10,3 @@ path("",views.ai_page,name="ai-page"),
 path("<int:pk>/ask/", ai_followup, name="ai-followup"),
     
 ]
-if settings.DEBUG:
-     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

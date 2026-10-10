@@ -15,9 +15,7 @@ urlpatterns = [
     path("pesticides",views.pesticides,name="pesticides"),
     path("pesticides/<int:id>/", views.pesticides_detail, name="pesticides_detail"),
     path("about",views.about,name="about"),
-    path("contact/",views.contact,name="contact"),
+    path("contact",views.contact,name="contact"),
     path("subscribe/", views.subscribe, name="subscribe"),
 
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,6 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
-
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Signup(models.Model):
@@ -16,7 +16,7 @@ class Signup(models.Model):
 
 class Crop(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='crops/')
+    image = CloudinaryField('photo')
     card_desc = models.TextField(default="")
     description = HTMLField()
 
@@ -26,7 +26,8 @@ class Crop(models.Model):
 
 class Fertilizer(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='Fertilizer/')
+    image = CloudinaryField('photo')
+    # image = models.ImageField(upload_to='Fertilizer/')
     card_desc = models.TextField(default="")
     description = HTMLField()
 
@@ -35,7 +36,8 @@ class Fertilizer(models.Model):
 
 class Pesticides(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='Pesticides/')
+    image = CloudinaryField('photo')
+    # image = models.ImageField(upload_to='Pesticides/')
     card_desc = models.TextField(default="")
     description = HTMLField()
 

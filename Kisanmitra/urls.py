@@ -28,9 +28,9 @@ admin.site.index_title = "Welcome to Kisan Mitra"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",include("crops.urls")),
-    path("ai",include("ai.urls")),
-    path("weather",include("weather.urls")),
+    path("ai/",include("ai.urls")),
+    path("weather/",include("weather.urls")),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
