@@ -16,7 +16,7 @@ const swiper = new Swiper('.mySwiper', {
     },
     breakpoints: {
         320: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
+        600: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
     },
 });

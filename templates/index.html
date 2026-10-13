@@ -166,7 +166,7 @@
                 <img src="{{ crop.image.url }}">
                 <div class="card-content">
                     <h3>{{ crop.name }}</h3>
-                    <p>{{ crop.card_desc | truncatewords:40 }}</p>
+                    <p>{{ crop.card_desc | truncatewords:25 }}</p>
                     <a href="{% url 'crop_detail' crop.id %}" class="learnmore">learn more </a>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                 <img src="{{ fertilizer.image.url }}">
                 <div class="card-content">
                     <h3>{{ fertilizer.name }}</h3>
-                    <p>{{ fertilizer.card_desc|truncatewords:40 }}</p>
+                    <p>{{ fertilizer.card_desc|truncatewords:25 }}</p>
                     <a href="{% url 'fertilizer_detail' fertilizer.id %}" class="learnmore">learn more </a>
                 </div>
             </div>
@@ -233,7 +233,7 @@
                 <img src="{{ pesticides.image.url }}">
                 <div class="card-content">
                     <h3>{{ pesticides.name }}</h3>
-                    <p>{{ pesticides.card_desc|truncatewords:40 }}</p>
+                    <p>{{ pesticides.card_desc|truncatewords:25 }}</p>
                     <a href="{% url 'pesticides_detail' pesticides.id %}" class="learnmore">learn more </a>
                 </div>
             </div>
@@ -267,5 +267,5 @@
 
 </section>
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-<script src="{% static 'js/swipper.js' %}?v=4"></script>
+<script src="{% static 'js/swipper.js' %}?v=5"></script>
 {% endblock body %}

@@ -25,7 +25,7 @@ fertilizer
             <img src="{{ fertilizer.image.url }}">
             <div class="card-content">
                 <h3>{{ fertilizer.name }}</h3>
-                <p>{{ fertilizer.card_desc|truncatewords:40 }}</p>
+                <p>{{ fertilizer.card_desc|truncatewords:25 }}</p>
                 <a href="{% url 'fertilizer_detail' fertilizer.id %}" class="learnmore">learn more </a>
             </div>
         </div>

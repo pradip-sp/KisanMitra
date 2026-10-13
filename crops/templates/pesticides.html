@@ -25,7 +25,7 @@ pesticides
             <img src="{{ pesticides.image.url }}">
             <div class="card-content">
                 <h3>{{ pesticides.name }}</h3>
-                <p>{{ pesticides.card_desc|truncatewords:40 }}</p>
+                <p>{{ pesticides.card_desc|truncatewords:25 }}</p>
                 <a href="{% url 'pesticides_detail' pesticides.id %}" class="learnmore">learn more </a>
             </div>
         </div>
