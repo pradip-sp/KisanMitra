@@ -323,17 +323,6 @@
         margin-top: 10px;
     }
 
-    /* .cards,
-    .blog-grid {
-        grid-template-columns: 1fr;
-    } */
-
-    /* .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    } */
-
     .about {
         flex-direction: column;
     }
@@ -367,7 +356,7 @@
     }
 
     button.learn-more {
-        width: 12rem;
+        width: 13.8rem;
         height: auto;
     }
 
@@ -376,7 +365,7 @@
         position: relative;
         display: block;
         margin: 0;
-        width: 3rem;
+        width: 2.5rem;
         height: 3rem;
         background: #282936;
         border-radius: 1.625rem;
